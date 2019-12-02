@@ -2,7 +2,7 @@
 
 A hello world page built with React, Node.js, Babel, and WebPack. Open on localhost with http-server node.js package.
 
-A version built with purely React is avaibale [here](https://github.com/KainingX/hello-world-react-only).
+A version built with purely React is available [here](https://github.com/KainingX/hello-world-react-only).
 
 
 ## Setup
