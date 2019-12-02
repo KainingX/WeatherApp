@@ -18,7 +18,7 @@ Before we start, make sure that you have Node.js downloaded and installed from [
 Download the files and navigate into the folder with command line command.
 
 ```
-cd hello-world-react-jsx
+cd hello-world-react-jsx-master
 ```
 
 **3. Install packages**
