@@ -1,8 +1,8 @@
-# A react hello world page
+# A React Hello World Page
 
-A hello world page built with React, Node.js, Babel, and WebPack. Start on localhost with http-server node.js package.
+A hello world page built with React, Node.js, Babel, and WebPack. Open on localhost with http-server node.js package.
 
-Another version built with purly React is avaibale [here]().
+A version built with purely React is avaibale [here](https://github.com/KainingX/hello-world-react-only).
 
 
 ## Setup
@@ -29,31 +29,30 @@ React and react-dom:
 
 ```
 npm install react react-dom
-
 ```
 
 Babel, WebPack, and http-server:
 
 ```
 npm install --save-dev @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli babel-loader http-server
-
 ```
 
 ## Running the website on localhost
 
-Run WebPack to create a dist folder and a bundle file inside first
+Run WebPack to create a dist folder and a bundle file inside
 
 ```
 npm run create
-
 ```
 
-Run http-server, then click /dist to show the hello world page
+Run http-server to setup a localhost web server
 
 ```
 npm run start
-
 ```
+
+Open http://localhost:8080 to see the website
+
 
 ## Built With
 
