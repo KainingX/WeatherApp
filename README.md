@@ -1,6 +1,6 @@
 # A React Hello World Page
 
-A hello world page built with React, Node.js, Babel, and WebPack. Open on localhost with http-server node.js package.
+A hello world page built with React, Node.js, Express, Babel, and WebPack
 
 A version built with purely React is available [here](https://github.com/KainingX/hello-world-react-only).
 
@@ -45,13 +45,14 @@ Run WebPack to create a dist folder and a bundle file inside
 npm run create
 ```
 
-Run http-server to setup a localhost web server
+Run server.js to run the page on a localhost web server
 
 ```
-npm start
+node server.js
 ```
 
-Open http://localhost:8080 to see the website
+
+Open the web page at localhost:5000 !
 
 
 ## Built With
@@ -60,7 +61,7 @@ Open http://localhost:8080 to see the website
 * [Node.js](nodejs.org) - To use node package management
 * [Babel](https://babeljs.io/) - JavaScript compiler, transforming JSX syntax
 * [WebPack](webpack.js.org) - Module Bundler, loading Babel
-* [http-server](www.npmjs.com/package/http-server) - Creating a localhost web server
+* [Express](https://expressjs.com/) - Creating a localhost web server
 
 ### Challenges and Leanring
 1. Understand what each packages do and decide on which ones I have to use.
