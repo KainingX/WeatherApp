@@ -48,7 +48,7 @@ npm run create
 Run http-server to setup a localhost web server
 
 ```
-npm run start
+npm start
 ```
 
 Open http://localhost:8080 to see the website
