@@ -8,23 +8,15 @@ module.exports = {
     module: {
         rules: [
             {
-                test : /\.jsx?/,
-                exclude: /node_modules/,
-                loader:[
-                    {
-                        loader:"babel-loader",
-                        query:{
-                            presets:["@babel/preset-react",
-                                    "@babel/preset-env"]
-                        }
-                    }
-                ]
+                test : /\.(js)$/, use:'babel-loader'
+
             }
         ]
     },
 
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
-    }
+
+output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
+}
 }
