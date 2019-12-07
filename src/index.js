@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Card from "./components/Card.js";
+import FormatDate from "./components/FormatDate.js";
 
 
 const key = '6d2010e0231d0e4ef59246cf9f5e7fdc';
@@ -19,29 +20,15 @@ class App extends Component{
         };
     }
 
-    // convertTime(timestamp){
-    //     let time = new Date(timestamp * 1000);
-    //     let day = time.getDay();
-    //     let month = time.getMonth();
-    //     let year = time.getFullYear();
-    //
-    //     let date = day+'-'+month+'-'+year;
-    //
-    //     return date;
-    // }
 
     getWeather = () => {
         //fetch api
-        let response = fetch('http://api.openweathermap.org/data/2.5/weather?id=6167865&units=metric&appid='+key);
-
-        //convert to json format
-        let data = (response) => {
+        fetch('http://api.openweathermap.org/data/2.5/weather?id=6167865&units=metric&appid='+key)
+        .then((response) => {         //convert to json format
             return response.json();
-        };
-
-        //update state
-        (data) => {
-            this.setState({
+        })
+        .then((data) => {
+            this.setState({ //update state
                 temperature_c: data.main.temp,
                 temperature_f: ((data.main.temp)*(9/5)+32),
                 city: data.name,
@@ -49,21 +36,23 @@ class App extends Component{
                 date: data.dt,
                 description: data.weather[0].description
             })
-        };
+        });
+
+
     }
 
     render(){
         return(
             <div>
             {this.getWeather()}
-            <div> <span> City: {this.state.city}</span> </div>
-            <div> <span> Country: {this.state.country}</span> </div>
+            <div>  City: {this.state.city}</div>
+            <div> Country: {this.state.country}</div>
             <div>
             <span> Temperature: {this.state.temperature} C </span>
             <span> {this.state.temperature} F </span>
             </div>
-            <div> <span> Date: {this.state.date}</span> </div>
-            <div> <span> Description: {this.state.description}</span> </div>
+            <FormatDate date={this.state.date} />
+            <div> Description: {this.state.description} </div>
             </div>
 
             // <Card
