@@ -1,9 +1,8 @@
-# A React Hello World Page
+# A Weather Page
 
-A hello world page built with React, Node.js, Express, Babel, and Webpack
+Display toronto's weather.
 
-A version built with purely React is available [here](https://github.com/KainingX/hello-world-react-only).
-
+**Issue: 429 too many request**
 
 ## Setup
 
@@ -34,7 +33,8 @@ npm install react react-dom express
 Babel and Webpack:
 
 ```
-npm install --save-dev @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli babel-loader
+npm install --save-dev @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli babel-loader @babel/plugin-proposal-class-properties
+
 ```
 
 ## Running the website on localhost
