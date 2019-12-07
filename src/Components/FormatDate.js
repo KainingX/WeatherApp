@@ -5,7 +5,7 @@ class FormatDate extends React.Component{
 
         const time = this.props.date;
 
-        return (<div>{time}</div>);
+        return (<div>Date: {time}</div>);
     }
 
 }

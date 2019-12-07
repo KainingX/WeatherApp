@@ -48,8 +48,8 @@ class App extends Component{
             <div>  City: {this.state.city}</div>
             <div> Country: {this.state.country}</div>
             <div>
-            <span> Temperature: {this.state.temperature} C </span>
-            <span> {this.state.temperature} F </span>
+            <span> Temperature: {this.state.temperature_c} C </span>
+            <span> {this.state.temperature_f} F </span>
             </div>
             <FormatDate date={this.state.date} />
             <div> Description: {this.state.description} </div>
