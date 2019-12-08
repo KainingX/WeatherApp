@@ -27,7 +27,7 @@ Once inside the folder, install the following packages.
 React, react-dom, and express:
 
 ```
-npm install react react-dom express
+npm install react react-dom express babel-polyfill
 ```
 
 Babel and Webpack:
