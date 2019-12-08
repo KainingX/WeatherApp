@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Card from "./components/Card.js";
 import FormatDate from "./components/FormatDate.js";
+import Form from "./components/Form.js";
+
 
 
 const key = '6d2010e0231d0e4ef59246cf9f5e7fdc';
@@ -15,51 +17,67 @@ class App extends Component{
             country: "",
             temperature_c: "",
             temperature_f: "",
-            date:"",
-            description:""
+            date:Date.now()/1000,
+            description:"",
+            sunset:Date.now()/1000,
+            sunrise:Date.now()/1000
         };
     }
 
+    //everytime text changes in the input box, change corresponding state
+    handleChange = (event)=>{
+        const value = event.target.value;
 
-    getWeather = () => {
-        //fetch api
-        fetch('http://api.openweathermap.org/data/2.5/weather?id=6167865&units=metric&appid='+key)
-        .then((response) => {         //convert to json format
-            return response.json();
-        })
-        .then((data) => {
-            this.setState({ //update state
-                temperature_c: data.main.temp,
-                temperature_f: ((data.main.temp)*(9/5)+32),
-                city: data.name,
-                country: data.sys.country,
-                date: data.dt,
-                description: data.weather[0].description
-            })
+        this.setState({
+            [event.target.name]: value
         });
 
+    }
+
+
+
+    getWeather = async (event) => {
+        //prevent default refresh behaviour
+        event.preventDefault();
+
+        const city = this.state.city;
+        const country = this.state.country;
+        const url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +','+ country +'&units=metric&appid='+key;
+
+        //fetch api
+        const promise = await fetch(url);
+
+        //convert to json format
+        const data = await promise.json();
+
+        //set new state
+        await this.setState({
+                temperature_c: data.main.temp,
+                temperature_f: Math.floor((data.main.temp)*(9/5)+32),
+                date: data.dt,
+                description: data.weather[0].description,
+                sunset:data.sys.sunset,
+                sunrise:data.sys.sunrise
+            });
 
     }
 
     render(){
         return(
-            <div>
-            {this.getWeather()}
-            <div>  City: {this.state.city}</div>
-            <div> Country: {this.state.country}</div>
-            <div>
-            <span> Temperature: {this.state.temperature_c} C </span>
-            <span> {this.state.temperature_f} F </span>
-            </div>
-            <FormatDate date={this.state.date} />
-            <div> Description: {this.state.description} </div>
-            </div>
 
-            // <Card
-            //     temperature={this.state.temperature}
-            //     city={this.state.city}
-            //     country={this.state.country}
-            // />
+            <Card
+                getWeather={this.getWeather}
+                handleChange={this.handleChange}
+
+                city={this.state.city}
+                country={this.state.country}
+                temperature_c={this.state.temperature_c}
+                temperature_f={this.state.temperature_f}
+                date={this.state.date}
+                description={this.state.description}
+                sunset={this.state.sunset}
+                sunrise={this.state.sunrise}
+            />
         )
     };
 }
