@@ -3,8 +3,11 @@ import ReactDOM from 'react-dom';
 import Card from "./components/Card.js";
 import FormatDate from "./components/FormatDate.js";
 import Form from "./components/Form.js";
+//import Welcome from "./components/Welcome.js";
 
 
+
+const { getCode, getName } = require('country-list');
 
 const key = '6d2010e0231d0e4ef59246cf9f5e7fdc';
 
@@ -13,8 +16,8 @@ class App extends Component{
         super(props);
 
         this.state = {
-            city: "",
-            country: "",
+            city: "Vancouver",
+            country: "Canada",
             temperature_c: "",
             temperature_f: "",
             date:Date.now()/1000,
@@ -41,7 +44,7 @@ class App extends Component{
         event.preventDefault();
 
         const city = this.state.city;
-        const country = this.state.country;
+        const country = getCode(this.state.country);
         const url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +','+ country +'&units=metric&appid='+key;
 
         //fetch api
@@ -52,7 +55,7 @@ class App extends Component{
 
         //set new state
         await this.setState({
-                temperature_c: data.main.temp,
+                temperature_c: Math.floor(data.main.temp),
                 temperature_f: Math.floor((data.main.temp)*(9/5)+32),
                 date: data.dt,
                 description: data.weather[0].description,
@@ -64,20 +67,24 @@ class App extends Component{
 
     render(){
         return(
+            <div className="container">
+                <div className="row justify-content-center">
+                    <Form getWeather = {this.getWeather} handleChange = {this.handleChange}/>
+                </div>
+                <div className="row justify-content-center">
+                    <Card
 
-            <Card
-                getWeather={this.getWeather}
-                handleChange={this.handleChange}
-
-                city={this.state.city}
-                country={this.state.country}
-                temperature_c={this.state.temperature_c}
-                temperature_f={this.state.temperature_f}
-                date={this.state.date}
-                description={this.state.description}
-                sunset={this.state.sunset}
-                sunrise={this.state.sunrise}
-            />
+                        city={this.state.city}
+                        country={this.state.country}
+                        temperature_c={this.state.temperature_c}
+                        temperature_f={this.state.temperature_f}
+                        date={this.state.date}
+                        description={this.state.description}
+                        sunset={this.state.sunset}
+                        sunrise={this.state.sunrise}
+                    />
+                </div>
+            </div>
         )
     };
 }

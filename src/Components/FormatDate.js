@@ -6,15 +6,30 @@ class FormatDate extends Component{
 
         const time = new Date(this.props.date*1000);
 
-        const day = time.getDay();
+        const day = time.getDate();
 
         const month = months[time.getMonth()];
 
         const year = time.getFullYear();
 
-        const date = day+'-'+month+"-"+year
+        const min = time.getMinutes();
 
-        return (<span>{date}</span>);
+        let hour = time.getHours();
+
+        if (hour > 12){
+            hour = hour - 12;
+            const date = day+'-'+month+"-"+year+", "+ hour+":"+min+"PM";
+
+            return (<span>{date}</span>);
+        }
+
+        else{
+            const date = day+'-'+month+"-"+year+", "+ hour+":"+min+"AM";
+
+            return (<span>{date}</span>);
+        }
+
+
     }
 
 }
