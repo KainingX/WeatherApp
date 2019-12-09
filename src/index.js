@@ -79,11 +79,11 @@ class App extends Component{
                 <Welcome />
                 <div className="container">
 
-                    <div className="row justify-content-center">
+                    <div className="row justify-content-center mt-3">
                         <Form getWeather = {this.getWeather} handleChange = {this.handleChange}/>
                     </div>
-                    
-                    <div className="row justify-content-center">
+
+                    <div className="row justify-content-center mt-3">
                         <Card
 
                             city={this.state.city}
