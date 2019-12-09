@@ -2,9 +2,13 @@ import React, { Component }from 'react';
 import FormatDate from "./FormatDate.js";
 import Form from "./Form.js";
 import FormatTime from "./FormatTime.js";
+import CityImage from "./CityImage.js";
+
 
 
 class Card extends React.Component{
+
+
     render(){
 
         return(
@@ -12,7 +16,7 @@ class Card extends React.Component{
             <div className="card mb-3" style= {{maxHeight: 540 + 'px'},{maxWidth: 540 + 'px'}}>
                 <div className="row no-gutters">
                     <div className="col-md-6">
-                        <img className="card-img" style= {{objectFit: 'cover'}} src="https://d13k13wj6adfdf.cloudfront.net/urban_areas/vancouver-3160f806cf.jpg" />
+                        <CityImage image_url={this.props.image_url}/>
                     </div>
                     <div className="col-md-6">
                         <div className="card-body">

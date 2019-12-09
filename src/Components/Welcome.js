@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 
-const api_key='c6d2540561b216bbfcab2343d19d4f7b';
 
 class Welcome extends Component{
 
-    render(){
-        return(
-            <div className="card col-md-auto">
 
-                <div className="card-body">
-                    Welcome!
+    render(){
+
+        return(
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">
+                        <img src="https://img.icons8.com/dusk/64/000000/rainbow.png" width="30" height="30" class="d-inline-block align-top"/>
+                        Welcome to the Weather App
+                    </span>
                 </div>
-            </div>
+            </nav>
+
         )
     }
 }
