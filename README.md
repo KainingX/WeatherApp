@@ -10,29 +10,10 @@ Search and display the weather. Using [openweather API](https://openweathermap.o
 Before we start, make sure that you have Node.js downloaded and installed from [website](https://nodejs.org/en/download/).
 
 
-**2. Download the files**
-
-Download the files and navigate into the folder with command line command.
+**2. Install packages**
 
 ```
-cd hello-world-react-jsx-master
-```
-
-**3. Install packages**
-
-Once inside the folder, install the following packages.
-
-React, react-dom, and express:
-
-```
-npm install react react-dom express babel-polyfill
-```
-
-Babel and Webpack:
-
-```
-npm install --save-dev @babel/core @babel/preset-env @babel/preset-react webpack webpack-cli babel-loader @babel/plugin-proposal-class-properties
-
+npm install
 ```
 
 ## Running the website on localhost
