@@ -29,7 +29,8 @@ class App extends Component{
     }
 
 
-    //everytime text changes in the input box, change corresponding state
+    // Everytime when text changes in the input box, changes the value in corresponding state
+    // Uses arrow function in order to bind to the App component
     handleChange = (event)=>{
 
         const value = event.target.value;
@@ -41,10 +42,12 @@ class App extends Component{
 
     }
 
-
-
+    // Get weather and image from API
+    // Uses arraw function to bind to this function to the App component
+    // make sure that they can use this.props this.state
     getWeather = async (event) => {
-        //prevent default refresh behaviour
+
+        //prevent default refresh behaviour from the submit button
         event.preventDefault();
 
         const city = this.state.city;
@@ -53,7 +56,13 @@ class App extends Component{
         const url = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +','+ country +'&units=metric&appid='+key;
         const url_img = 'https://api.teleport.org/api/urban_areas/slug:' + city_lcase +'/images/';
 
+        // Fetch and then convert the response into json format
+        // await makes the function pause until a result is returned by promise
+        // pause the function until get a result from the server
+        // Promise.all return a single promise when all promises are fulfilled
         let data = await Promise.all([
+            //fetch returns a promise. When it is fufilled, it will return a http response,
+            //need to parse into json
             fetch(url).then((response) => response.json()),
             fetch(url_img).then((response) => response.json())
         ]);
@@ -80,12 +89,13 @@ class App extends Component{
                 <div className="container">
 
                     <div className="row justify-content-center mt-3">
+
                         <Form getWeather = {this.getWeather} handleChange = {this.handleChange}/>
                     </div>
 
                     <div className="row justify-content-center mt-3">
-                        <Card
 
+                        <Card
                             city={this.state.city}
                             country={this.state.country}
                             temperature_c={this.state.temperature_c}

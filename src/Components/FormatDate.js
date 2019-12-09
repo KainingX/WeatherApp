@@ -16,6 +16,7 @@ class FormatDate extends Component{
 
         let hour = time.getHours();
 
+        //convert hour into 12-hour system
         if (hour > 12){
             hour = hour - 12;
             const date = day+'-'+month+"-"+year+", "+ hour+":"+min+"PM";

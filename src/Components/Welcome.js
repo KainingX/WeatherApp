@@ -10,7 +10,7 @@ class Welcome extends Component{
             <nav className="navbar-light bg-light">
                 <div className="container-fluid-nav text-center mb-0 h4">
 
-                    <img src="https://img.icons8.com/dusk/64/000000/rainbow.png" width="30" height="30" class="d-inline-block align-top"/>
+                    <img src="https://img.icons8.com/dusk/64/000000/rainbow.png" width="30" height="30" className="d-inline-block align-top"/>
                     Welcome to the Weather App
 
                 </div>
