@@ -1,8 +1,6 @@
 # A Weather Page
 
-Display toronto's weather.
-
-**Issue: 429 too many request**
+Search and display the weather. Using [openweather API](https://openweathermap.org/current).
 
 ## Setup
 
