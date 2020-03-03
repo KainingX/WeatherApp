@@ -1,3 +1,5 @@
+![Example](https://github.com/KainingX/WeatherApp/blob/master/example.png)
+
 # A Weather Page
 
 Search and display the weather. Using [openweather API](https://openweathermap.org/current).
